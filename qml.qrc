@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file alias="QMLTermScrollbar.qml">src/QMLTermScrollbar.qml</file>
+    </qresource>
+</RCC>
+
