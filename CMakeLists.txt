@@ -1,7 +1,7 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 3.1)
 ADD_DEFINITIONS("-std=c++11")
 
-PROJECT(term)
+PROJECT(qmlkonsole)
 
 SET(QT_MIN_VERSION  "5.7.0")
 set(CMAKE_BUILD_TYPE DEBUG)
@@ -27,7 +27,7 @@ ADD_DEFINITIONS( -D HAVE_SYS_TIME_H)
 #macx:DEFINES += HAVE_UTMPX _UTMPX_COMPAT
 
 
-SET(term_SRC
+SET(qmlkonsole_SRC
 lib/BlockArray.cpp
 lib/ColorScheme.cpp
 lib/Emulation.cpp
@@ -55,15 +55,15 @@ src/qmltermwidget_plugin.cpp
 src/main.cpp
 )
 
-QT5_ADD_RESOURCES(term_SRC
+QT5_ADD_RESOURCES(qmlkonsole_SRC
     qml.qrc
 )
 
 set(CMAKE_AUTOMOC ON)
 
-ADD_EXECUTABLE( term ${term_SRC} )
+ADD_EXECUTABLE( qmlkonsole ${qmlkonsole_SRC} )
 
-TARGET_LINK_LIBRARIES( term
+TARGET_LINK_LIBRARIES( qmlkonsole
     Qt5::Core
     Qt5::Gui
     Qt5::Widgets
@@ -72,3 +72,5 @@ TARGET_LINK_LIBRARIES( term
     ${CMAKE_THREAD_LIBS_INIT}
 )
 
+
+INSTALL( TARGETS qmlkonsole DESTINATION bin)
