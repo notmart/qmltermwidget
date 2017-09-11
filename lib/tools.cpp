@@ -11,6 +11,7 @@ But in some cases (apple bundle) there can be more locations).
 */
 QString get_kb_layout_dir()
 {
+    return QLatin1String(":/");
 #ifdef BUNDLE_KEYBOARDLAYOUTS
     return QLatin1String(":/");
 #else

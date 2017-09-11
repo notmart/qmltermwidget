@@ -17,11 +17,6 @@ Rectangle {
         shortcut: "Ctrl+Shift+V"
     }
 
-    Action{
-        onTriggered: searchButton.visible = !searchButton.visible
-        shortcut: "Ctrl+F"
-    }
-
     ColumnLayout {
         anchors.fill: parent
         QMLTermWidget {
@@ -95,13 +90,6 @@ Rectangle {
         }
     }
 
-    Button {
-        id: searchButton
-        text: "Find version"
-        anchors.bottom: parent.bottom
-        anchors.right: parent.right
-        visible: false
-        onClicked: mainsession.search("version");
-    }
+
     Component.onCompleted: terminal.forceActiveFocus();
 }
