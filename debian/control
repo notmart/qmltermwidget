@@ -1,0 +1,36 @@
+Source: qmlkonsole
+Section: kde
+Priority: optional
+Maintainer: Debian/Kubuntu Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>
+Build-Depends: cmake (>= 2.8.12),
+               debhelper (>= 9),
+               extra-cmake-modules (>= 1.6.0~),
+               qttools5-dev-tools (>= 5.6.0~),
+               libqt5opengl5-dev (>= 5.6.0~),
+               qttools5-dev,
+               qttools5-dev-tools,
+               libx11-dev,
+               pkg-kde-tools (>= 0.15.16~),
+               qtbase5-dev (>= 5.4),
+               libkf5declarative-dev,
+               qtquickcontrols2-5-dev
+Standards-Version: 3.9.8
+Homepage: http://www.kde.org/
+Vcs-Browser: https://anonscm.debian.org/git/pkg-kde/applications/konsole.git
+Vcs-Git: https://anonscm.debian.org/git/pkg-kde/applications/konsole.git
+
+Package: qmlkonsole
+Architecture: any
+Depends: ${misc:Depends},
+         ${shlibs:Depends},
+         qml-module-qtquick-controls,
+         qml-module-qtquick-controls2,
+         qml-module-qtquick-templates2
+Provides: x-terminal-emulator
+Description: X terminal emulator
+ Konsole is a terminal emulator built on the KDE Platform. It can contain
+ multiple terminal sessions inside one window using detachable tabs.
+ .
+ Konsole supports powerful terminal features, such as customizable schemes,
+ saved sessions, and output monitoring.
+
