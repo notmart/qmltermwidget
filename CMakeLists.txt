@@ -22,6 +22,10 @@ find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     QuickControls2
 )
 
+ADD_DEFINITIONS( -D HAVE_POSIX_OPENPT)
+ADD_DEFINITIONS( -D HAVE_SYS_TIME_H)
+#macx:DEFINES += HAVE_UTMPX _UTMPX_COMPAT
+
 
 SET(term_SRC
 lib/BlockArray.cpp
@@ -48,11 +52,14 @@ lib/kptyprocess.cpp
 lib/tools.cpp
 src/ksession.cpp
 src/qmltermwidget_plugin.cpp
+src/main.cpp
 )
 
 QT5_ADD_RESOURCES(term_SRC
     qml.qrc
 )
+
+set(CMAKE_AUTOMOC ON)
 
 ADD_EXECUTABLE( term ${term_SRC} )
 
