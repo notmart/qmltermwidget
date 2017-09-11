@@ -3,5 +3,8 @@
         <file alias="QMLTermScrollbar.qml">src/QMLTermScrollbar.qml</file>
         <file alias="test-app.qml">test-app/test-app.qml</file>
     </qresource>
+    <qresource prefix="/color-schemes/">
+        <file alias="cool-retro-term.schema">lib/color-schemes/cool-retro-term.schema</file>
+    </qresource>
 </RCC>
 

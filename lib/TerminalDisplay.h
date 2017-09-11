@@ -88,7 +88,7 @@ class KONSOLEPRIVATE_EXPORT TerminalDisplay : public QQuickPaintedItem
    Q_PROPERTY(QString colorScheme       READ colorScheme     WRITE setColorScheme NOTIFY colorSchemeChanged      )
    Q_PROPERTY(QSize terminalSize        READ getTerminalSize                      NOTIFY changedContentSizeSignal)
    Q_PROPERTY(int lineSpacing           READ lineSpacing     WRITE setLineSpacing NOTIFY lineSpacingChanged      )
-   Q_PROPERTY(bool terminalUsesMouse    READ getUsesMouse                         NOTIFY usesMouseChanged        )
+   Q_PROPERTY(bool terminalUsesMouse    READ getUsesMouse    WRITE setUsesMouse   NOTIFY usesMouseChanged        )
    Q_PROPERTY(int lines                 READ lines                                NOTIFY changedContentSizeSignal)
    Q_PROPERTY(int columns               READ columns                              NOTIFY changedContentSizeSignal)
    Q_PROPERTY(int scrollbarCurrentValue READ getScrollbarValue                    NOTIFY scrollbarParamsChanged  )

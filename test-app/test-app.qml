@@ -31,6 +31,7 @@ Rectangle {
             font.family: "Monospace"
             font.pointSize: 12
             colorScheme: "cool-retro-term"
+
             session: QMLTermSession{
                 id: mainsession
                 initialWorkingDirectory: "$HOME"
@@ -39,6 +40,11 @@ Rectangle {
                 }
                 onNoMatchFound: {
                     console.log("not found");
+                }
+            }
+            onActiveFocusChanged: {
+                if (focus) {
+                    Qt.inputMethod.show();
                 }
             }
             onTerminalUsesMouseChanged: console.log(terminalUsesMouse);
@@ -82,6 +88,10 @@ Rectangle {
                 text: "~"
                 onClicked: terminal.simulateKeyPress(Qt.Key_AsciiTilde, 0, true, 0, "~")
             }
+        }
+        Item {
+            Layout.minimumHeight: Qt.inputMethod.keyboardRectangle.height
+            Layout.fillWidth: true
         }
     }
 
