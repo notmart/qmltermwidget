@@ -37,11 +37,7 @@ Rectangle {
                     console.log("not found");
                 }
             }
-            onActiveFocusChanged: {
-                if (focus) {
-                    Qt.inputMethod.show();
-                }
-            }
+
             onTerminalUsesMouseChanged: console.log(terminalUsesMouse);
             onTerminalSizeChanged: console.log(terminalSize);
             Component.onCompleted: mainsession.startShellProgram();
@@ -57,29 +53,52 @@ Rectangle {
                 }
             }
 
+            MouseArea {
+                anchors.fill: parent
+                property real oldY
+                onPressed: oldY = mouse.y
+                onPositionChanged: {
+                    terminal.simulateWheel(0, 0, 0, 0, Qt.point(0, (mouse.y - oldY)*2))
+                    oldY = mouse.y
+                }
+                onClicked: {
+                    Qt.inputMethod.show();
+                }
+            }
         }
         RowLayout {
             ToolButton {
+                Layout.maximumWidth: height
                 text: "Tab"
                 onClicked: terminal.simulateKeyPress(Qt.Key_Tab, 0, true, 0, "")
             }
             ToolButton {
+                Layout.maximumWidth: height
                 text: "←"
                 onClicked: terminal.simulateKeyPress(Qt.Key_Left, 0, true, 0, "")
             }
             ToolButton {
+                Layout.maximumWidth: height
                 text: "↑"
                 onClicked: terminal.simulateKeyPress(Qt.Key_Up, 0, true, 0, "")
             }
             ToolButton {
+                Layout.maximumWidth: height
                 text: "→"
                 onClicked: terminal.simulateKeyPress(Qt.Key_Right, 0, true, 0, "")
             }
             ToolButton {
+                Layout.maximumWidth: height
+                text: "↓"
+                onClicked: terminal.simulateKeyPress(Qt.Key_Down, 0, true, 0, "")
+            }
+            ToolButton {
+                Layout.maximumWidth: height
                 text: "|"
                 onClicked: terminal.simulateKeyPress(Qt.Key_Bar, 0, true, 0, "|")
             }
             ToolButton {
+                Layout.maximumWidth: height
                 text: "~"
                 onClicked: terminal.simulateKeyPress(Qt.Key_AsciiTilde, 0, true, 0, "~")
             }
