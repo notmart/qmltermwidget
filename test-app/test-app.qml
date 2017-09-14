@@ -24,7 +24,7 @@ Rectangle {
             Layout.fillWidth: true
             Layout.fillHeight: true
             font.family: "Monospace"
-            font.pointSize: 8
+            font.pointSize: 7
             colorScheme: "cool-retro-term"
 
             session: QMLTermSession{
